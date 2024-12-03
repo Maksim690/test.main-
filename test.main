@@ -1,0 +1,18 @@
+import tkinter 
+ 
+master = tkinter.Tk() 
+canvas = tkinter.Canvas(master, bg='white', height=600) 
+for i in range(1,8): 
+    canvas.create_line(0, 75 * i, 600, 75 * i) 
+    canvas.create_line(75 * i, 0, 75 * i, 600) 
+for y in range(3): 
+    for x in range(4): 
+        x_real = (2 * x + (y %2)) * 75  
+        y_real = y * 75  
+        canvas.create_oval((x_real, y_real), x_real + 75, y_real + 75, fill = 'lightgreen') 
+ 
+        x_real = (2 * x + ((7 - y) % 2)) * 75  
+        y_real = (7 - y) * 75  
+        canvas.create_oval((x_real, y_real),x_real + 75, y_real + 75, fill = 'lightblue') 
+canvas.pack() 
+master.mainloop()
